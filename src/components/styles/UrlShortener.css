@@ -1,0 +1,44 @@
+.input-div{
+    margin: 10% auto 0;
+    text-align: center;
+}
+.input-form input{
+    width: 50%;
+    margin: auto;
+    padding: 0.7%;
+    border: 1px solid;
+    border-radius:20px;
+    outline: 0;
+}
+
+
+.input-form button{
+    padding: 1%;
+    border-radius: 20px;
+    background-color: darkcyan;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.super-container{
+    background-color: darkcyan;
+    width: 60%;
+    margin: 3% auto 20%;
+    border-radius: 20px;
+}
+
+@media (max-width: 600px){
+    .super-container{
+        width: 80%;
+    }
+    .input-form input{
+        width: 70%;
+    }
+    .input-form button{
+        font-size: 0.6rem;
+    }
+}
