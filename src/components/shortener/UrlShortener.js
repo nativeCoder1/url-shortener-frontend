@@ -17,7 +17,7 @@ const UrlShortener = () => {
 
     const fetchHandler = async (fetchedValue) => {
         try {
-            const response = await fetch("http://localhost:8079/post_url", {
+            const response = await fetch("https://tiny-url-572e.onrender.com/post_url", {
                 method: 'POST',
                 body: JSON.stringify(fetchedValue),
                 headers: {
