@@ -9,13 +9,14 @@ const UrlShortener = () => {
     const [error, setError] = useState(false)
     const [errorMessage, setErrorMessage] = useState("")
     const [notification, setNotification] = useState("")
-    
+    const [loading, setLoading] = useState(false)    
     const handleChange = (event)=>{
         const newValue = event.target.value
         setEnteredUrl(newValue)
     }
 
     const fetchHandler = async (fetchedValue) => {
+        setLoading(true)
         try {
             const response = await fetch("https://tiny-url-572e.onrender.com/post_url", {
                 method: 'POST',
@@ -31,6 +32,7 @@ const UrlShortener = () => {
             console.log(data)
             setUrlContainer(prevContainer => [data, ...prevContainer])
             setNotification(data.message)
+            setLoading(false)
             showModal(true)
         }catch(error){
             setError(true)
@@ -52,6 +54,7 @@ const UrlShortener = () => {
             {modal && <Modals notification = {notification}/>}
             {error && <Modals notification = {errorMessage} />}
             <div className="input-div">
+            {loading && <p>Loading...please wait...</p>}
                 <form onSubmit={handleClick} className="input-form">
                     <input placeholder = "Enter or paste url here" name = "url" type="text" onChange={handleChange} value={enteredUrl} required/>
                     <button type="submit">Shorten url</button>
