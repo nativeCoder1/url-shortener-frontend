@@ -29,7 +29,6 @@ const UrlShortener = () => {
                 throw new Error("Invalid url")
             }
             const data = await response.json()
-            console.log(data)
             setUrlContainer(prevContainer => [data, ...prevContainer])
             setNotification(data.message)
             setLoading(false)
@@ -37,6 +36,8 @@ const UrlShortener = () => {
         }catch(error){
             setError(true)
             setErrorMessage(error.message)
+        }finally{
+            setLoading(false)
         }
     }
     const handleClick = (event) => {
