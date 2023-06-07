@@ -18,7 +18,7 @@ const UrlShortener = () => {
     const fetchHandler = async (fetchedValue) => {
         setLoading(true)
         try {
-            const response = await fetch("https://tiny-url-572e.onrender.com/post_url", {
+            const response = await fetch("https://url-shortener-server-production.up.railway.app/post_url", {
                 method: 'POST',
                 body: JSON.stringify(fetchedValue),
                 headers: {
@@ -54,7 +54,7 @@ const UrlShortener = () => {
             {modal && <Modals notification = {notification}/>}
             {error && <Modals notification = {errorMessage} />}
             <div className="input-div">
-            {loading && <p>Loading...please wait...</p>}
+            {loading && <p>Loading...</p>}
                 <form onSubmit={handleClick} className="input-form">
                     <input placeholder = "Enter or paste url here" name = "url" type="text" onChange={handleChange} value={enteredUrl} required/>
                     <button type="submit">Shorten url</button>
